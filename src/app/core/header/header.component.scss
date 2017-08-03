@@ -1,0 +1,10 @@
+@import '../../shared/styles/_vars.scss';
+:host {
+    flex: 0 0 #{$nav-height};
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+

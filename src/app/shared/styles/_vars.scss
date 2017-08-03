@@ -1,0 +1,7 @@
+// LAYOUT
+
+$nav-height: 100px;
+
+@mixin imaginate-background($image-name){
+    background: url('assets/images/#{$image-name}') no-repeat center / $nav-height/2;
+}

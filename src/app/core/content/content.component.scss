@@ -1,0 +1,4 @@
+@import '../../shared/styles/_vars.scss';
+:host {
+    flex: 1 1 calc(100% - 2 * #{$nav-height});
+}

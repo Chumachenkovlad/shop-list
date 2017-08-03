@@ -1,0 +1,19 @@
+@import '../../shared/styles/_vars.scss';
+:host {
+    flex: 0 0 #{$nav-height};
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+
+    & .icon {
+        flex: 0 0 #{$nav-height};
+        order: 0;
+    }
+
+    & h3 {
+        flex: 0 0 calc(100% - #{$nav-height});
+        order: 1;
+    }
+}

@@ -1,0 +1,6 @@
+<tp-products-item
+  *ngFor="let product of products | inBasket:in_basket_filtration"
+  [product]="product"
+  (swiperight)='switchToHome(product)'
+  (swipeleft)='switchToBasket(product)'
+></tp-products-item>
