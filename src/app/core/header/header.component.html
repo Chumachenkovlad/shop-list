@@ -1,20 +1,14 @@
+<span 
+  [ngClass]="{'hidden': headerType !== HEADER_TYPES.PRODUCTS}">setting</span>
 
-  
-  <span 
-    *ngIf="headerType == HEADER_TYPES.PRODUCTS"
-    (click)='console.log("btn--add-new")'>setting </span>
-  <span 
-    *ngIf="headerType == HEADER_TYPES.EDIT_PRODUCTS"
-    (click)='console.log("btn--add-new")'>new </span>
+<span 
+  [ngClass]="{'hidden': headerType !== HEADER_TYPES.EDIT_PRODUCTS}" (click)='openDialog()'>new</span>
 
+<h1 class="title">Groceries</h1>
 
-
-<div class="title" >Groceries</div>
-
-  <a 
-    *ngIf="headerType == HEADER_TYPES.PRODUCTS"
-    routerLink="/products/edit" routerLinkActive="active"
-    >Edit</a>
-  <span 
-    *ngIf="headerType == HEADER_TYPES.EDIT_PRODUCTS"
-    (click)='console.log("btn--add-done")'>Done </span>
+<a 
+  [ngClass]="{'hidden': headerType !== HEADER_TYPES.PRODUCTS}" 
+  routerLink="/products/edit" routerLinkActive="active">Edit</a>
+<span 
+  [ngClass]="{'hidden': headerType !== HEADER_TYPES.EDIT_PRODUCTS}" 
+  (click)='console.log("btn--add-done")'>Done</span>

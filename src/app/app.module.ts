@@ -4,15 +4,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductsItemComponent } from './products/products-item/products-item.component';
-import { NewProductsComponent } from './products/new-products/new-products.component';
-import { NewProductsWindowComponent } from './products/new-products-window/new-products-window.component';
-import { NewProductsItemComponent } from './products/new-products-item/new-products-item.component';
 import { ProductsModule } from './products/products.module';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './store/index';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+
+import { reducers, metaReducers } from './store/index';
 
 import 'hammerjs';
 

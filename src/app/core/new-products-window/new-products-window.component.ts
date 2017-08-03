@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MdDialogRef } from '@angular/material';
 
 @Component({
   selector: 'tp-new-products-window',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewProductsWindowComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogRef: MdDialogRef<NewProductsWindowComponent>) { }
 
   ngOnInit() {
   }

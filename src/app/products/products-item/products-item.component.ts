@@ -32,7 +32,7 @@ const WIDTH = '100px';
   ]
 
 })
-export class ProductsItemComponent implements OnInit, OnDestroy, OnChanges {
+export class ProductsItemComponent implements OnInit, OnDestroy {
   @Input() product: Product;
   private animationState;
   constructor(
@@ -43,10 +43,6 @@ export class ProductsItemComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnDestroy() {
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
   }
 
   getAnimationState() {

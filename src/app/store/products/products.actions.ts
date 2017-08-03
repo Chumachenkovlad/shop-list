@@ -3,7 +3,7 @@ import { Action } from '@ngrx/store';
 export const ProductsActionTypes = {
   BASKET_TOGGLE: '[Products] Toggle product in/out of basket',
   ADD_TO_BUFFER: '[Products] add new product to buffer',
-  REMOVE_FROM_BUFFER: '[Products] add new product to buffer',
+  REMOVE_FROM_BUFFER: '[Products] remove product from buffer',
   SAVE_FROM_BUFFER: '[Products] save all products from buffer',
   SWITCH_BASKET_FILTER: '[Products] switch on/off in basket filteration'
 };

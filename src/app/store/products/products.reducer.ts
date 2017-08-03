@@ -31,12 +31,9 @@ export function reducer(state: State = initialState, action: products.ProductsAc
   switch (action.type) {
     case products.ProductsActionTypes.BASKET_TOGGLE:
       {
-        console.log(action.payload);
-        const product = state.products.find(product => product.name === action.payload.name);
-        console.log('before product', product);
+        const product = state.products.find(p => p.name === action.payload.name);
         const pindex = state.products.indexOf(product);
         product.inBasket = action.payload.inBasket;
-        console.log('after product', product);
         return Object.assign({}, state, {
             products: [
               ...state.products.slice(0, pindex),
@@ -54,9 +51,8 @@ export function reducer(state: State = initialState, action: products.ProductsAc
       }
     case products.ProductsActionTypes.REMOVE_FROM_BUFFER:
       {
-        const product_index = state.products.findIndex(product => product.name === action.payload.product.name);
         return Object.assign({}, state, {
-            products_buffer: state.products_buffer.splice(product_index)
+            products_buffer: state.products_buffer.filter(p => p.name !== action.payload.product.name)
         });
       }
     case products.ProductsActionTypes.SAVE_FROM_BUFFER:

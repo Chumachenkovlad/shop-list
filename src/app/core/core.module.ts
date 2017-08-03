@@ -4,11 +4,14 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { ContentComponent } from './content/content.component';
+import { MdDialogModule } from '@angular/material';
+import { NewProductsWindowComponent } from './new-products-window/new-products-window.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MdDialogModule
   ],
   exports: [
     HeaderComponent,
@@ -18,7 +21,11 @@ import { ContentComponent } from './content/content.component';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    ContentComponent
+    ContentComponent,
+    NewProductsWindowComponent
+  ],
+  entryComponents: [
+    NewProductsWindowComponent
   ]
 })
 export class CoreModule { }
