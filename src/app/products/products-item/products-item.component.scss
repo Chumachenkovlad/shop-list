@@ -9,11 +9,11 @@
 
     & .icon {
         flex: 0 0 #{$nav-height};
-        order: 0;
+        position: relative;
     }
 
     & h3 {
         flex: 0 0 calc(100% - #{$nav-height});
-        order: 1;
+        position: relative;
     }
 }
