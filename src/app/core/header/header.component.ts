@@ -2,11 +2,9 @@ import { Component, OnInit, OnDestroy, HostBinding } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromRoot from '../../store/index';
 import { NgSwitch } from '@angular/common';
-import { HEADER_TYPES } from '../../store/layout/layout.reducer';
+import { HEADER_BUTTON_TYPES } from '../../store/layout/layout.reducer';
 import { RouterModule, Router } from '@angular/router';
-import {MdDialog, MdDialogRef} from '@angular/material';
 import { ProductsAddToBufferAction, ProductsSaveFromBufferAction } from '../../store/products/products.actions';
-import { NewProductsWindowComponent } from '../new-products-window/new-products-window.component';
 
 @Component({
   selector: 'tp-header',
@@ -14,32 +12,30 @@ import { NewProductsWindowComponent } from '../new-products-window/new-products-
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  public HEADER_TYPES;
-  public headerType;
-  private headerType$;
+  public HEADER_BUTTON_TYPES = HEADER_BUTTON_TYPES;
+  public headerData;
+  private headerData$;
   constructor(
-    public dialog: MdDialog,
     private router: Router,
     private store: Store<fromRoot.AppState>) { }
 
   ngOnInit() {
-    this.HEADER_TYPES = HEADER_TYPES;
-    this.headerType$ = this.store.select(fromRoot.getHeaderType)
-      .subscribe(ht => this.headerType = ht);
+    this.headerData$ = this.store.select(fromRoot.getHeaderData)
+      .subscribe(hd => {
+        console.log(hd);
+        Promise.resolve(null).then(() => this.headerData = hd);
+      });
   }
 
   ngOnDestroy() {
-    this.headerType$.unsubscribe();
+    this.headerData$.unsubscribe();
   }
-
-  // openDialog() {
-  //   const dialogRef = this.dialog.open(NewProductsWindowComponent);
-  //   dialogRef.afterClosed().subscribe(name => {
-  //     this.store.dispatch(new ProductsAddToBufferAction({ name }));
-  //   });
-  // }
 
   saveProductsFromBuffer() {
     this.store.dispatch(new ProductsSaveFromBufferAction());
+  }
+
+  saveNewProductToBuffer() {
+    this.store.dispatch(new ProductsAddToBufferAction());
   }
 }

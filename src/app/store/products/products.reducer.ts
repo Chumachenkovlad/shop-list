@@ -6,24 +6,26 @@ export interface State {
   readonly products: Array<Product>;
   readonly products_buffer: Array<Product>;
   readonly in_basket_filtration: boolean;
+  readonly new_product: Product;
 }
 
 const initialState: State = {
   products: [
-      new Product('Milk 1l', false),
+      new Product('Milk 1l', true),
       new Product('Eggs Medium 12 pack', true),
-      new Product('Fresh Basil', false),
-      new Product('Wholegrain Bread 1 pkg', false),
-      new Product('Ground Coffee 200g', false),
-      new Product('Red Wine', false),
-      new Product('Mozzarella Cheese 150g', false),
-      new Product('Orange Juice 1l', false),
-      new Product('Tomatoes', false),
+      new Product('Fresh Basil', true),
+      new Product('Wholegrain Bread 1 pkg', true),
+      new Product('Ground Coffee 200g', true),
+      new Product('Red Wine', true),
+      new Product('Mozzarella Cheese 150g', true),
+      new Product('Orange Juice 1l', true),
+      new Product('Tomatoes', true),
   ],
   products_buffer: [
-      new Product('Свитч', false)
+      new Product('Свитч', true)
   ],
-  in_basket_filtration: false
+  in_basket_filtration: false,
+  new_product: new Product('', true)
 };
 
 
@@ -46,7 +48,8 @@ export function reducer(state: State = initialState, action: products.ProductsAc
       {
         const product = new Product(action.payload.name, true);
         return Object.assign({}, state, {
-            products_buffer: [...state.products_buffer, product]
+            products_buffer: [...state.products_buffer, state.new_product],
+            new_product: new Product('', true)
         });
       }
     case products.ProductsActionTypes.REMOVE_FROM_BUFFER:
@@ -65,7 +68,13 @@ export function reducer(state: State = initialState, action: products.ProductsAc
     case products.ProductsActionTypes.SWITCH_BASKET_FILTER:
       {
         return Object.assign({}, state,
-          { in_basket_filtration: !state.in_basket_filtration });
+          { in_basket_filtration: action.payload });
+      }
+    case products.ProductsActionTypes.UPDATE_UNSAVED_PRODUCT:
+      {
+        const name = action.payload.name;
+        return Object.assign({}, state,
+          { new_product: new Product(name, true) });
       }
     default:
       return state;

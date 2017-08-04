@@ -4,14 +4,12 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { ContentComponent } from './content/content.component';
-import { MdDialogModule } from '@angular/material';
-import { NewProductsWindowComponent } from './new-products-window/new-products-window.component';
+import { DontExistComponent } from './dont-exist/dont-exist.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    MdDialogModule
   ],
   exports: [
     HeaderComponent,
@@ -22,10 +20,7 @@ import { NewProductsWindowComponent } from './new-products-window/new-products-w
     HeaderComponent,
     FooterComponent,
     ContentComponent,
-    NewProductsWindowComponent
-  ],
-  entryComponents: [
-    NewProductsWindowComponent
+    DontExistComponent
   ]
 })
 export class CoreModule { }

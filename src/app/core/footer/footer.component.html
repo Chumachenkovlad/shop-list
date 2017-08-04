@@ -1,4 +1,6 @@
   <span 
-    (click)='switchInBasketFilter()'>setting</span>
+    (click)='switchInBasketFilter(true)' 
+    [class.active]='in_basket_filtration' >Basket</span>
   <span 
-    routerLink="/products">products </span>
+    (click)='switchInBasketFilter(false)' 
+    [class.active]='!in_basket_filtration'>All </span>

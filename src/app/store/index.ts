@@ -32,7 +32,7 @@ export const metaReducers = [debug];
 
 // Layout
 export const getLayoutState            = (state: AppState) => state.layout;
-export const getHeaderType             = createSelector(getLayoutState, fromLayout.getHeaderType);
+export const getHeaderData             = createSelector(getLayoutState, fromLayout.getHeaderData);
 
 // Products
 export const getProductsState          = (state: AppState) => state.products;

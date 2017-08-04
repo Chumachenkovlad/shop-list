@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, OnChanges, SimpleChanges } from '@angular
 import { Store } from '@ngrx/store';
 import * as fromRoot from '../../store/index';
 import { LayoutUpdateHeaderAction } from '../../store/layout/layout.actions';
-import { HEADER_TYPES } from '../../store/layout/layout.reducer';
+import { HEADER_BUTTON_TYPES } from '../../store/layout/layout.reducer';
 import { ProductsBasketToggleAction } from '../../store/products/products.actions';
 
 
@@ -21,7 +21,10 @@ export class ProductsComponent implements OnInit, OnDestroy {
     private store: Store<fromRoot.AppState>) { }
 
   ngOnInit() {
-    this.store.dispatch(new LayoutUpdateHeaderAction(HEADER_TYPES.PRODUCTS));
+    this.store.dispatch(new LayoutUpdateHeaderAction({
+      title: 'Groceries',
+      buttons: [HEADER_BUTTON_TYPES.EDIT]
+    }));
     this.products$ = this.store.select(fromRoot.getProducts)
       .subscribe(products => this.products = products);
     this.in_basket_filtration$ = this.store.select(fromRoot.getInBasketFiltration)

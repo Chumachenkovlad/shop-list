@@ -1,29 +1,34 @@
 import * as layout from './layout.actions';
 
-export const HEADER_TYPES = {
-    PRODUCTS: 'Products',
-    EDIT_PRODUCTS: 'Edit Products'
+export const HEADER_BUTTON_TYPES = {
+  EDIT: 'edit',
+  ADD_ALL: 'add all',
+  ADD_ONE: 'add one',
+  SAVE_ONE: 'save one',
+  CANCEL_ONE: 'cancel one',
 };
 
 export interface State {
-  readonly header_type;
+  readonly header: {
+    title: string;
+    buttons: string[]
+  };
 }
 
 const initialState: State = {
-    header_type: HEADER_TYPES.PRODUCTS
+    header: null
 };
-
 
 export function reducer(state: State = initialState, action: layout.LayoutActions): State {
   switch (action.type) {
     case layout.LayoutActionTypes.UPDATE_HEADER:
       {
-        const header_type = action.payload;
-        return Object.assign({}, state, { header_type });
+        const header = action.payload;
+        return Object.assign({}, state, { header });
       }
     default:
       return state;
   }
 }
 
-export const getHeaderType = (state: State) => state.header_type;
+export const getHeaderData = (state: State) => state.header;

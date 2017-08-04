@@ -5,7 +5,8 @@ export const ProductsActionTypes = {
   ADD_TO_BUFFER: '[Products] add new product to buffer',
   REMOVE_FROM_BUFFER: '[Products] remove product from buffer',
   SAVE_FROM_BUFFER: '[Products] save all products from buffer',
-  SWITCH_BASKET_FILTER: '[Products] switch on/off in basket filteration'
+  SWITCH_BASKET_FILTER: '[Products] switch on/off in basket filteration',
+  UPDATE_UNSAVED_PRODUCT: '[Products] save state of new product'
 };
 
 export class ProductsBasketToggleAction implements Action {
@@ -33,10 +34,16 @@ export class ProductsSwitchBasketFilterAction implements Action {
   constructor(public payload: any = null) {}
 }
 
+export class ProductsUpdateNewProduct implements Action {
+  type = ProductsActionTypes.UPDATE_UNSAVED_PRODUCT;
+  constructor(public payload: any = null) {}
+}
+
 export type ProductsActions = ProductsBasketToggleAction
     | ProductsAddToBufferAction
     | ProductsRemoveFromBufferAction
     | ProductsSaveFromBufferAction
-    | ProductsSwitchBasketFilterAction;
+    | ProductsSwitchBasketFilterAction
+    | ProductsUpdateNewProduct;
 
 

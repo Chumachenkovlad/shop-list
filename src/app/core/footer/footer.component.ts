@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy, HostBinding } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromRoot from '../../store/index';
 import { NgSwitch } from '@angular/common';
-import { HEADER_TYPES } from '../../store/layout/layout.reducer';
 import { RouterModule, Router } from '@angular/router';
 import { getInBasketFiltration } from '../../store/products/products.reducer';
 import { ProductsSwitchBasketFilterAction } from '../../store/products/products.actions';
@@ -22,15 +21,17 @@ export class FooterComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.in_basket_filtration$ = this.store.select(fromRoot.getInBasketFiltration)
-      .subscribe(ft => this.in_basket_filtration = ft);
+      .subscribe(ft => {
+        Promise.resolve(null).then(() => this.in_basket_filtration = ft);
+      });
   }
 
   ngOnDestroy() {
     this.in_basket_filtration$.unsubscribe();
   }
 
-  switchInBasketFilter() {
-    this.store.dispatch(new ProductsSwitchBasketFilterAction());
+  switchInBasketFilter(in_basket_filtration: boolean) {
+    this.store.dispatch(new ProductsSwitchBasketFilterAction(in_basket_filtration));
   }
 
 }

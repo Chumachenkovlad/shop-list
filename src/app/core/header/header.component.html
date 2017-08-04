@@ -1,14 +1,27 @@
-<span 
-  [ngClass]="{'hidden': headerType !== HEADER_TYPES.PRODUCTS}">setting</span>
+<!-- LEFT  -->
+<section>
+  <span 
+    *ngIf="headerData?.buttons.indexOf(HEADER_BUTTON_TYPES.ADD_ONE) > -1"
+    routerLink='/products/add'>New</span>
+  <span 
+    *ngIf="headerData?.buttons.indexOf(HEADER_BUTTON_TYPES.CANCEL_ONE) > -1"
+    routerLink='/products'>Cancel</span>
+</section>
 
-<span 
-  [ngClass]="{'hidden': headerType !== HEADER_TYPES.EDIT_PRODUCTS}" (click)='openDialog()'>new</span>
+<!-- CENTER  -->
+<section>
+  <h1 class="title">{{ headerData?.title }}</h1>
+</section>
 
-<h1 class="title">Groceries</h1>
-
-<a 
-  [ngClass]="{'hidden': headerType !== HEADER_TYPES.PRODUCTS}" 
-  routerLink="/products/edit" routerLinkActive="active">Edit</a>
-<span 
-  [ngClass]="{'hidden': headerType !== HEADER_TYPES.EDIT_PRODUCTS}" 
-  (click)='console.log("btn--add-done")'>Done</span>
+<!-- RIGHT  -->
+<section>
+  <span 
+    *ngIf="headerData?.buttons.indexOf(HEADER_BUTTON_TYPES.EDIT) > -1"
+    [routerLink]="['products/new']">Edit</span>
+  <span 
+    *ngIf="headerData?.buttons.indexOf(HEADER_BUTTON_TYPES.SAVE_ONE) > -1"
+    (click)='saveProductsFromBuffer()'>Done</span>
+  <span 
+    *ngIf="headerData?.buttons.indexOf(HEADER_BUTTON_TYPES.SAVE_ALL) > -1"
+    (click)='saveNewProductToBuffer()'>Done</span>
+</section>
