@@ -1,0 +1,33 @@
+@import '../../shared/styles/_vars.scss';
+
+@import '../../shared/styles/_vars.scss';
+:host {
+    flex: 0 0 #{$nav-height};
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+button {
+    flex: 0 0 #{$nav-height};
+    position: relative;
+    @include custom-button(); 
+    position: relative;
+    &::after {
+        position: absolute;
+        content: '';
+        display: block;
+        top: calc(#{$nav-height}/4);
+        left: calc(#{$nav-height}/4);
+        width: calc(#{$nav-height}/2);
+        height: calc(#{$nav-height}/2);
+        @include imaginate-background('method-draw-image.svg');
+        transform: rotate(45deg);
+    }
+}
+
+h2 {
+    flex: 0 0 calc(100% - #{$nav-height});
+    position: relative;
+}

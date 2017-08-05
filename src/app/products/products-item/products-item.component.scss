@@ -6,14 +6,21 @@
     justify-content: space-between;
     align-content: center;
     align-items: center;
+}
 
-    & .icon {
-        flex: 0 0 #{$nav-height};
-        position: relative;
+.icon {
+    flex: 0 0 #{$nav-height};
+    position: relative;
+    @include custom-button();
+    &--basket {
+        @include imaginate-background('cart-icon-50px.png');
     }
+    &--home {
+        @include imaginate-background('home-icon-46px.png');
+    }
+}
 
-    & h3 {
-        flex: 0 0 calc(100% - #{$nav-height});
-        position: relative;
-    }
+h2 {
+    flex: 0 0 calc(100% - #{$nav-height});
+    position: relative;
 }

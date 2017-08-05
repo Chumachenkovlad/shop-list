@@ -1,21 +1,23 @@
 @import '../../shared/styles/_vars.scss';
 :host {
-    position: fixed;
+    @include nav-context();
     top: 0;
     left: 0;
-    width: 100vw;
-    padding: 0 calc(100%/2 - 640px/2);
-    height: #{$nav-height};
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    background: whitesmoke;
-    z-index: 10;
+
+}
+
+nav {
+    @include nav-layout('space-between');
 }
 
 .hidden {
     display: none;
 }
 
+button {
+    @include custom-button();
+}
+
+.btn--edit{
+    @include imaginate-background('edit-icon-active.png');
+}

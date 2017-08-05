@@ -1,7 +1,8 @@
+@import '../../shared/styles/_vars.scss';
 :host {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-content: stretch;
-    align-content: stretch;
+    @include list-layout();
+}
+
+h3 {
+    padding-left: 10px;
 }

@@ -1,6 +1,10 @@
-  <span 
+<nav>
+  <button
+    class="btn--in-basket" 
     (click)='switchInBasketFilter(true)' 
-    [class.active]='in_basket_filtration' >Basket</span>
-  <span 
+    [class.active]='in_basket_filtration' ></button>
+  <button 
+    class="btn--all" 
     (click)='switchInBasketFilter(false)' 
-    [class.active]='!in_basket_filtration'>All </span>
+    [class.active]='!in_basket_filtration'></button>
+</nav>

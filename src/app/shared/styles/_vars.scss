@@ -2,6 +2,50 @@
 
 $nav-height: 100px;
 
-@mixin imaginate-background($image-name){
-    background: url('assets/images/#{$image-name}') no-repeat center / $nav-height/2;
+@mixin imaginate-background($image-name) {
+    background-image: url('../../../assets/images/#{$image-name}'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: #{$nav-height/2};
+    mix-blend-mode: multiply;
+}
+
+@mixin custom-button() {
+    width: $nav-height;
+    height: $nav-height;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+@mixin nav-bg() {
+    background-image: linear-gradient(to left, #f8f8f8 0%, #f9f9f9 51%, #f8f8f8 100%);
+}
+
+@mixin nav-layout($justify-content) {
+    max-width: 620px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: #{$justify-content};
+    align-items: center;
+    align-content: center;
+}
+
+@mixin nav-context() {
+    position: fixed;
+    width: 100%;
+    padding: 0 10px;
+    height: #{$nav-height};
+    @include nav-bg();
+    z-index: 10;
+}
+
+@mixin list-layout() {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-content: stretch;
 }
