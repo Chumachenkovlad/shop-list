@@ -46,7 +46,6 @@ export function reducer(state: State = initialState, action: products.ProductsAc
       }
     case products.ProductsActionTypes.ADD_TO_BUFFER:
       {
-        const product = new Product(action.payload.name, true);
         return Object.assign({}, state, {
             products_buffer: [...state.products_buffer, state.new_product],
             new_product: new Product('', true)

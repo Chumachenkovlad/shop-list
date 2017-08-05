@@ -1,3 +1,8 @@
 <h2>Add new list item</h2>
-<input type="text" [(ngModel)]='name' (input)="onInput($event.target.value)">
+<input 
+    type="text" 
+    [(ngModel)]='name' 
+    (input)="onInput($event.target.value)"
+    maxlength="27"
+>
 <span>Charecters left {{ 27 - name?.length }}</span>

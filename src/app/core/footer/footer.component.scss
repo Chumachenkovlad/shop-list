@@ -1,9 +1,16 @@
 @import '../../shared/styles/_vars.scss';
 :host {
-    flex: 0 0 #{$nav-height};
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
+    padding: 0 calc(100%/2 - 640px);
+    height: #{$nav-height};
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
     align-content: center;
+    background: whitesmoke;
+    z-index: 10;
 }

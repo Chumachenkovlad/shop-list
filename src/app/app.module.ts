@@ -13,7 +13,7 @@ import { reducers, metaReducers } from './store/index';
 
 import 'hammerjs';
 
-(<any>window).TouchEmulator();
+// (<any>window).TouchEmulator();
 
 export class MyHammerConfig extends HammerGestureConfig  {
   overrides = <any>{

@@ -18,11 +18,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./add-new-products-item.component.scss']
 })
 export class AddNewProductsItemComponent implements OnInit, OnDestroy, AfterViewInit {
-  @ViewChildren('input') nameInput;
+  // @ViewChildren('input') nameInput;
   @Output() addNewProduct = new EventEmitter<Product>();
   name: string;
   onInput;
-  private keypress$: Subscription;
+  private input$: Subscription;
 
   constructor(
     private store: Store<fromRoot.AppState>) { }
@@ -31,22 +31,22 @@ export class AddNewProductsItemComponent implements OnInit, OnDestroy, AfterView
     this.store.dispatch(new LayoutUpdateHeaderAction({
       title: 'Add new list item',
       buttons: [
-        HEADER_BUTTON_TYPES.ADD_ONE,
+        HEADER_BUTTON_TYPES.SAVE_ONE,
         HEADER_BUTTON_TYPES.CANCEL_ONE
       ]
     }));
-    this.keypress$ = Observable.create(observer => {
+    this.input$ = Observable.create(observer => {
       this.onInput = value => { observer.next(value); };
     })
-      .throttle(ev => Observable.interval(300)
-      .subscribe(value => this.store.dispatch(new ProductsUpdateNewProduct({name: value}))));
+      .throttle(ev => Observable.interval(300))
+      .subscribe(value => this.store.dispatch(new ProductsUpdateNewProduct({name: value})));
   }
 
   ngAfterViewInit() {
-    console.log(this.nameInput);
+    // console.log(this.nameInput);
   }
 
   ngOnDestroy() {
-    this.keypress$.unsubscribe();
+    this.input$.unsubscribe();
   }
 }

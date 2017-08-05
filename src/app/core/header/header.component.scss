@@ -1,11 +1,18 @@
 @import '../../shared/styles/_vars.scss';
 :host {
-    flex: 0 0 #{$nav-height};
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    padding: 0 calc(100%/2 - 640px/2);
+    height: #{$nav-height};
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
     align-content: center;
+    background: whitesmoke;
+    z-index: 10;
 }
 
 .hidden {

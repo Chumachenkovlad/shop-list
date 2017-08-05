@@ -33,9 +33,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   saveProductsFromBuffer() {
     this.store.dispatch(new ProductsSaveFromBufferAction());
+    this.router.navigateByUrl('/products');
   }
 
   saveNewProductToBuffer() {
     this.store.dispatch(new ProductsAddToBufferAction());
+    this.router.navigateByUrl('/products/new');
   }
+
 }

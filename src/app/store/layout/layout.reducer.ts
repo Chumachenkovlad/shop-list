@@ -1,7 +1,7 @@
 import * as layout from './layout.actions';
 
 export const HEADER_BUTTON_TYPES = {
-  EDIT: 'edit',
+  EDIT: 'edit', // products to edit list
   ADD_ALL: 'add all',
   ADD_ONE: 'add one',
   SAVE_ONE: 'save one',

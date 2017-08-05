@@ -1,11 +1,11 @@
 <!-- LEFT  -->
 <section>
-  <span 
+   <span 
     *ngIf="headerData?.buttons.indexOf(HEADER_BUTTON_TYPES.ADD_ONE) > -1"
     routerLink='/products/add'>New</span>
   <span 
     *ngIf="headerData?.buttons.indexOf(HEADER_BUTTON_TYPES.CANCEL_ONE) > -1"
-    routerLink='/products'>Cancel</span>
+    routerLink='/products'>Cancel</span> 
 </section>
 
 <!-- CENTER  -->
@@ -19,9 +19,9 @@
     *ngIf="headerData?.buttons.indexOf(HEADER_BUTTON_TYPES.EDIT) > -1"
     [routerLink]="['products/new']">Edit</span>
   <span 
-    *ngIf="headerData?.buttons.indexOf(HEADER_BUTTON_TYPES.SAVE_ONE) > -1"
+    *ngIf="headerData?.buttons.indexOf(HEADER_BUTTON_TYPES.ADD_ALL) > -1"
     (click)='saveProductsFromBuffer()'>Done</span>
   <span 
-    *ngIf="headerData?.buttons.indexOf(HEADER_BUTTON_TYPES.SAVE_ALL) > -1"
+    *ngIf="headerData?.buttons.indexOf(HEADER_BUTTON_TYPES.SAVE_ONE) > -1"
     (click)='saveNewProductToBuffer()'>Done</span>
 </section>
