@@ -19,16 +19,16 @@ export const reducers: any = {
     layout: fromLayout.reducer
 };
 
-function debug(reducer) {
-  return function(state, action) {
-    console.log('state', state);
-    console.log('action', action);
+// function debug(reducer) {
+//   return function(state, action) {
+//     console.log('state', state);
+//     console.log('action', action);
 
-    return reducer(state, action);
-  };
-}
+//     return reducer(state, action);
+//   };
+// }
 
-export const metaReducers = [debug];
+// export const metaReducers = [debug];
 
 // Layout
 export const getLayoutState            = (state: AppState) => state.layout;

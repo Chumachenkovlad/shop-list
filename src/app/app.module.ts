@@ -9,7 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 
-import { reducers, metaReducers } from './store/index';
+import { reducers } from './store/index';
 
 import 'hammerjs';
 
@@ -32,7 +32,7 @@ export class MyHammerConfig extends HammerGestureConfig  {
     SharedModule,
     CoreModule,
     ProductsModule,
-    StoreModule.forRoot(reducers, { metaReducers })
+    StoreModule.forRoot(reducers)
   ],
   providers: [{
     provide: HAMMER_GESTURE_CONFIG,
