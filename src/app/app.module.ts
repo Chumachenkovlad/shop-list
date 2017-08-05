@@ -14,11 +14,18 @@ import { reducers } from './store/index';
 import 'hammerjs';
 
 // (<any>window).TouchEmulator();
+declare var Hammer: any;
 
 export class MyHammerConfig extends HammerGestureConfig  {
   overrides = <any>{
       'swipe': {velocity: 0.4, threshold: 20}
   };
+  buildHammer(element: HTMLElement) {
+    const mc = new Hammer(element, {
+      touchAction: 'pan-y'
+    });
+    return mc;
+  }
 }
 
 @NgModule({
@@ -34,7 +41,8 @@ export class MyHammerConfig extends HammerGestureConfig  {
     ProductsModule,
     StoreModule.forRoot(reducers)
   ],
-  providers: [{
+  providers: [
+    {
     provide: HAMMER_GESTURE_CONFIG,
     useClass: MyHammerConfig
   }],

@@ -10,7 +10,7 @@ import { ProductsBasketToggleAction,
   ProductsUpdateNewProduct } from '../../store/products/products.actions';
 import { Product } from '../../store/products/product.model';
 import { Subscription } from 'rxjs/Subscription';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'tp-add-new-products-item',
@@ -38,7 +38,7 @@ export class AddNewProductsItemComponent implements OnInit, OnDestroy, AfterView
     this.input$ = Observable.create(observer => {
       this.onInput = value => { observer.next(value); };
     })
-      .throttle(ev => Observable.interval(300))
+      // .throttle(ev => Observable.interval(300))
       .subscribe(value => this.store.dispatch(new ProductsUpdateNewProduct({name: value})));
   }
 
