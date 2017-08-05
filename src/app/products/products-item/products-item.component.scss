@@ -1,26 +1,64 @@
 @import '../../shared/styles/_vars.scss';
 :host {
-    flex: 0 0 #{$nav-height};
+    flex: 0 0 #{$lg-size};
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: space-between;
     align-content: center;
     align-items: center;
+    border-top: 1px solid #d5d6d6;
+    border-bottom: 1px solid #d5d6d6;
+}
+
+:host-context():first-child {
+    border-top: none;
+}
+
+:host-context():last-child {
+    border-bottom: none;
 }
 
 .icon {
-    flex: 0 0 #{$nav-height};
+    flex: 0 0 #{$lg-size};
     position: relative;
     @include custom-button();
+    background-color: #e6e7e8;
+    box-sizing: border-box;
+    --m-max-size: 540px;
     &--basket {
         @include imaginate-background('cart-icon-50px.png');
+        border-right: 2px solid #dddedf;
     }
     &--home {
         @include imaginate-background('home-icon-46px.png');
+        border-left: 2px solid #dddedf;
     }
 }
 
 h2 {
-    flex: 0 0 calc(100% - #{$nav-height});
+    flex: 0 1 calc(100% - #{$lg-size});
     position: relative;
+    margin-left: $lg-size / 2;
+    --b-size: $lg-size;
+}
+
+@include md() {
+   :host {
+    flex: 0 0 #{$sm-size};
+  }
+  .icon {
+    flex: 0 0 #{$sm-size};
+    @include height($sm-size);
+    @include width($sm-size);
+    --m-max-size: calc(300px - #{$sm-size});
+    &--basket, 
+    &--home {
+      @include bg-size($sm-size);
+    }
+  }
+  h2 {
+    --b-size: $sm-size;
+    flex: 0 0 calc(100% - #{$sm-size});
+    margin-left: $sm-size / 2;
+  }
 }

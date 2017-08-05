@@ -22,3 +22,25 @@ button {
     }
     
 }
+
+.active {
+    background-color: #e6e7e8;
+}
+
+@include md() {
+   :host {
+    @include height($sm-size);
+  }
+  button {
+    @include height($sm-size);
+    @include width($sm-size);
+  }
+  .btn {
+    &--in-basket {
+      @include bg-size($sm-size);
+    }
+    &--all {
+      @include bg-size($sm-size);
+    }
+  }
+}

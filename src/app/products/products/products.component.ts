@@ -23,7 +23,10 @@ export class ProductsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.store.dispatch(new LayoutUpdateHeaderAction({
       title: 'Groceries',
-      buttons: [HEADER_BUTTON_TYPES.EDIT]
+      buttons: [
+        HEADER_BUTTON_TYPES.EDIT,
+        HEADER_BUTTON_TYPES.SETTINGS
+      ]
     }));
     this.products$ = this.store.select(fromRoot.getProducts)
       .subscribe(products => this.products = products);

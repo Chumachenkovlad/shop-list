@@ -1,4 +1,12 @@
 @import '../../shared/styles/_vars.scss';
 :host {
-    padding: #{$nav-height} calc(100%/2 - 640px/2);
+    padding: #{$lg-size} calc(100%/2 - 640px/2);
+    min-height: calc(100vh - #{$lg-size} * 2);
+}
+
+@include md() {
+  :host {
+    padding: #{$sm-size} calc(100%/2 - 300px/2);
+    min-height: calc(100vh - #{$sm-size} * 2);
+  }
 }

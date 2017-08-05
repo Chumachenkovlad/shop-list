@@ -6,6 +6,7 @@ export const HEADER_BUTTON_TYPES = {
   ADD_ONE: 'add one',
   SAVE_ONE: 'save one',
   CANCEL_ONE: 'cancel one',
+  SETTINGS: 'settings'
 };
 
 export interface State {

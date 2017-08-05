@@ -16,7 +16,7 @@ const WIDTH = '100px';
         transform: 'translateX(0)',
       })),
       state('home', style({
-        transform: `translateX(540px)`
+        transform: `translateX(var(--m-max-size))`
       })),
       transition('basket <=> home', animate('100ms ease-in'))
     ]),
@@ -25,7 +25,7 @@ const WIDTH = '100px';
         transform: 'translateX(0)',
       })),
       state('home', style({
-        transform: `translateX(-100px)`,
+        transform: `translateX(calc(-1 * var(--b-size)))`,
       })),
       transition('basket <=> home', animate('100ms ease-in'))
     ])

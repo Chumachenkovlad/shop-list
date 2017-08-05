@@ -1,18 +1,35 @@
 // LAYOUT
+$lg-size: 100px;
+$sm-size: 50px;
 
-$nav-height: 100px;
+@mixin md(){
+    @media (max-width: 640px){
+        @content;
+    }
+}
+@mixin bg-size($size) {
+    background-size: #{$size/2};
+}
+
+@mixin width($size) {
+    min-width: $size;
+}
+
+@mixin height($size) {
+    height: $size;
+}
 
 @mixin imaginate-background($image-name) {
     background-image: url('../../../assets/images/#{$image-name}'); 
     background-repeat: no-repeat;
     background-position: center;
-    background-size: #{$nav-height/2};
+    background-size: #{$lg-size/2};
     mix-blend-mode: multiply;
 }
 
 @mixin custom-button() {
-    width: $nav-height;
-    height: $nav-height;
+    width: $lg-size;
+    height: $lg-size;
     background-color: transparent;
     outline: none;
     border: none;
@@ -35,9 +52,9 @@ $nav-height: 100px;
 
 @mixin nav-context() {
     position: fixed;
-    width: 100%;
-    padding: 0 10px;
-    height: #{$nav-height};
+    width: 96%;
+    height: $lg-size;
+    padding: 0 2%;
     @include nav-bg();
     z-index: 10;
 }

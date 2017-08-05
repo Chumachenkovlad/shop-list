@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+ @font-face {
+    font-family: 'DIN Alternate'; 
+    src: url('./assets/fonts/DIN Alternate Regular.otf'); 
+   }
+h1,h2,h3,input {
+    font-family: 'DIN Alternate';
+}
+h1, h2 {
+    font-size: 40px;
+}
+h3 {
+    font-size: 30px;
+}
+@media (max-width: 640px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    h2, h3 {
+        font-size: 22px;
+    }
+}

@@ -1,8 +1,7 @@
 @import '../../shared/styles/_vars.scss';
 
-@import '../../shared/styles/_vars.scss';
 :host {
-    flex: 0 0 #{$nav-height};
+    flex: 0 0 #{$lg-size};
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -10,7 +9,7 @@
     align-items: center;
 }
 button {
-    flex: 0 0 #{$nav-height};
+    flex: 0 0 #{$lg-size};
     position: relative;
     @include custom-button(); 
     position: relative;
@@ -18,16 +17,39 @@ button {
         position: absolute;
         content: '';
         display: block;
-        top: calc(#{$nav-height}/4);
-        left: calc(#{$nav-height}/4);
-        width: calc(#{$nav-height}/2);
-        height: calc(#{$nav-height}/2);
+        top: calc(#{$lg-size}/4);
+        left: calc(#{$lg-size}/4);
+        width: calc(#{$lg-size}/2);
+        height: calc(#{$lg-size}/2);
         @include imaginate-background('method-draw-image.svg');
         transform: rotate(45deg);
     }
 }
 
 h2 {
-    flex: 0 0 calc(100% - #{$nav-height});
+    flex: 0 0 calc(100% - #{$lg-size});
     position: relative;
 }
+
+@include md() {
+   :host {
+    flex: 0 0 #{$sm-size};
+  }
+  button {
+    flex: 0 0 #{$sm-size};
+    width: #{$sm-size};
+    height: #{$sm-size};
+    &::after {
+      top: calc(#{$sm-size}/4);
+      left: calc(#{$sm-size}/4);
+      width: calc(#{$sm-size}/2);
+      height: calc(#{$sm-size}/2);
+      @include bg-size($sm-size);
+      transform: rotate(45deg);
+    }
+  }
+  h2 {
+    flex: 0 0 calc(100% - #{$sm-size});
+  }
+}
+

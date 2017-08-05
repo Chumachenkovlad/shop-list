@@ -2,6 +2,10 @@
 <nav>
   <section>
     <button
+      class="btn--settings"
+      *ngIf="headerData?.buttons.indexOf(HEADER_BUTTON_TYPES.SETTINGS) > -1">
+    </button>
+    <button
       class="btn--new"
       *ngIf="headerData?.buttons.indexOf(HEADER_BUTTON_TYPES.ADD_ONE) > -1"
       routerLink='/products/add'>
@@ -17,11 +21,11 @@
 
   <!-- CENTER  -->
   <section>
-    <h1 
+    <h2
       class="title"
       [routerLink]="['products']">
         {{ headerData?.title }}
-    </h1>
+    </h2>
   </section>
 
   <!-- RIGHT  -->

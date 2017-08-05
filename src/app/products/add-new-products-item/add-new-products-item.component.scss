@@ -1,5 +1,6 @@
 @import '../../shared/styles/_vars.scss';
 :host {
+    padding-top: $lg-size;
     @include list-layout();
 }
 
@@ -15,4 +16,5 @@ input {
     padding: 10px;
     margin: 40px 0 10px;
     font-size: 26px;
+    border: 1px solid #d5d6d6;
 }
